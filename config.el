@@ -53,10 +53,10 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(load "$DOOMDIR/list.el")
-(load "$DOOMDIR/string.el")
-(load "$DOOMDIR/comments.el")
-(load "$DOOMDIR/header.el")
+(load "~/.doom.d/list.el")
+(load "~/.doom.d/string.el")
+(load "~/.doom.d/comments.el")
+(load "~/.doom.d/header.el")
 
 ;; Set default emacs configuration
 (set-language-environment "UTF-8")
