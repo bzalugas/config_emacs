@@ -52,3 +52,28 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+(load "$DOOMDIR/list.el")
+(load "$DOOMDIR/string.el")
+(load "$DOOMDIR/comments.el")
+(load "$DOOMDIR/header.el")
+
+;; Set default emacs configuration
+(set-language-environment "UTF-8")
+(setq-default tab-width 4)
+(setq-default indent-tabs-mode t)
+(setq-default c-basic-offset 4)
+(setq-default c-default-style "linux")
+(setq-default tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60
+	  		    64 68 72 76 80 84 88 92 96 100 104 108 112 116 120))
+
+(defun custom-c-mode-hook ()
+  (setq display-fill-column-indicator-column 80)
+  (setq display-fill-column-indicator-character ?\|)
+  (display-fill-column-indicator-mode 1))
+(add-hook 'c-mode-hook 'custom-c-mode-hook)
+
+;;(setq display-fill-column-indicator-column 80)
+;;(setq display-fill-column-indicator-character "|")
+;;(global-display-fill-column-indicator-mode 1)
+(display-fill-column-indicator-mode 1)
