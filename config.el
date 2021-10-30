@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
-(setq user-full-name "Bastien Zalugas"
-      user-mail-address "bzalugas@student.42.fr")
+(setq user-full-name "bzalugas"
+      user-mail-address "bastien.zalugas@hotmail.fr")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -59,6 +59,7 @@
 (load "~/.doom.d/header.el")
 
 ;; Set default emacs configuration
+;; For c
 (set-language-environment "UTF-8")
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode t)
@@ -67,13 +68,21 @@
 (setq-default tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60
 	  		    64 68 72 76 80 84 88 92 96 100 104 108 112 116 120))
 
+;; Set the colomn indicatore to 80 with '|'
 (defun custom-c-mode-hook ()
   (setq display-fill-column-indicator-column 80)
   (setq display-fill-column-indicator-character ?\|)
   (display-fill-column-indicator-mode 1))
 (add-hook 'c-mode-hook 'custom-c-mode-hook)
 
+;; For java
+(setq-default c-default-style
+	      '((java-mode . "doom")))
+
+;; Desactiver confirmation fermeture emacs
+(setq-default confirm-kill-emacs nil)
+
 ;;(setq display-fill-column-indicator-column 80)
 ;;(setq display-fill-column-indicator-character "|")
 ;;(global-display-fill-column-indicator-mode 1)
-(display-fill-column-indicator-mode 1)
+;;(display-fill-column-indicator-mode 1)
