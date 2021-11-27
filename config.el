@@ -53,10 +53,11 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(load "~/.doom.d/list.el")
-(load "~/.doom.d/string.el")
-(load "~/.doom.d/comments.el")
-(load "~/.doom.d/header.el")
+;; HEADER 42
+(load! "list.el")
+(load! "string.el")
+(load! "comments.el")
+(load! "header.el")
 
 ;; Set default emacs configuration
 ;; For c
@@ -86,3 +87,8 @@
 ;;(setq display-fill-column-indicator-character "|")
 ;;(global-display-fill-column-indicator-mode 1)
 ;;(display-fill-column-indicator-mode 1)
+
+;; Org bullets
+(add-load-path! "~/.doom.d/org-bullets")
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
