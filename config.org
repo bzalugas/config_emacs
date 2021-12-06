@@ -1,20 +1,35 @@
+#+title: config.org
+
+* Full screen at startup
+#+begin_src emacs-lisp
 ;;Take all the screen
 ;;(add-to-list 'initial-frame-alist '(fullscreen . fullboth))
 ;;Take all the screen but with dock & title bar
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
-
+#+end_src
+* Name & mail
+#+begin_src emacs-lisp
 (setq user-full-name "bzalugas"
       user-mail-address "bastien.zalugas@hotmail.fr")
-
+#+end_src
+* Main theme for doom emacs
+#+begin_src emacs-lisp
 (setq doom-theme 'doom-one)
-
+#+end_src
+* Display relative line numbers
+#+begin_src emacs-lisp
 (setq display-line-numbers-type 'relative)
-
+#+end_src
+* Header 42
+#+begin_src emacs-lisp
 (load! "list.el")
 (load! "string.el")
 (load! "comments.el")
 (load! "header.el")
-
+#+end_src
+* Default configuration for C
+** language & indentations
+#+begin_src emacs-lisp
 (set-language-environment "UTF-8")
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode t)
@@ -22,19 +37,32 @@
 (setq-default c-default-style "linux")
 (setq-default tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60
 	  		    64 68 72 76 80 84 88 92 96 100 104 108 112 116 120))
-
+#+end_src
+** Column indicator
+#+begin_src emacs-lisp
 (defun custom-c-mode-hook ()
   (setq display-fill-column-indicator-column 80)
   (setq display-fill-column-indicator-character ?\|)
   (display-fill-column-indicator-mode 1))
 (add-hook 'c-mode-hook 'custom-c-mode-hook)
-
+#+end_src
+* Default configuration for Java
+#+begin_src emacs-lisp
 (setq-default c-default-style
 	      '((java-mode . "doom")))
-
+#+end_src
+* Don't show confirm message when closing emacs
+#+begin_src emacs-lisp
 (setq-default confirm-kill-emacs nil)
+#+end_src
 
+* Org mode
+** Org directories
+#+begin_src emacs-lisp
 (setq org-directory "~/org/")
+#+end_src
+** Various configurations
+#+begin_src emacs-lisp
 
 (after! org
   (setq org-agenda-files '("~/org/agenda.org"))
@@ -54,7 +82,14 @@
 	  ("FINISHED" . (:foreground "green"))
 	  ("CODED" (:foreground "green"))))
 )
-
+#+end_src
+# ** Export parameters
+# #+begin_src emacs-lisp
+# (setq org-export-with-tags
+# #+end_src
+** Load org-bullets
+#+begin_src emacs-lisp
 (add-load-path! "~/.doom.d/org-bullets")
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+#+end_src
