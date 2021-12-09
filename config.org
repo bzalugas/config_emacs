@@ -27,16 +27,27 @@
 (load! "comments.el")
 (load! "header.el")
 #+end_src
-* Default configuration for C
+* Default configuration for C & java
 ** language & indentations
 #+begin_src emacs-lisp
 (set-language-environment "UTF-8")
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode t)
 (setq-default c-basic-offset 4)
-(setq-default c-default-style "linux")
+(setq-default c-default-style   '(
+				  (c-mode . "linux")
+				  (java-mode . "java")))
 (setq-default tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60
 	  		    64 68 72 76 80 84 88 92 96 100 104 108 112 116 120))
+
+#+end_src
+** Java indentations settings
+#+begin_src emacs-lisp
+(defun custom-java-mode-hook ()
+  (c-set-offset 'inline-open 0)
+  (c-set-offset 'defun-block-intro '+)
+  (c-set-offset 'substatement-open 0))
+(add-hook 'java-mode-hook 'custom-java-mode-hook)
 #+end_src
 ** Column indicator
 #+begin_src emacs-lisp
@@ -45,11 +56,6 @@
   (setq display-fill-column-indicator-character ?\|)
   (display-fill-column-indicator-mode 1))
 (add-hook 'c-mode-hook 'custom-c-mode-hook)
-#+end_src
-* Default configuration for Java
-#+begin_src emacs-lisp
-(setq-default c-default-style
-	      '((java-mode . "doom")))
 #+end_src
 * Don't show confirm message when closing emacs
 #+begin_src emacs-lisp
@@ -83,13 +89,15 @@
 	  ("CODED" (:foreground "green"))))
 )
 #+end_src
-# ** Export parameters
-# #+begin_src emacs-lisp
-# (setq org-export-with-tags
-# #+end_src
+
 ** Load org-bullets
 #+begin_src emacs-lisp
 (add-load-path! "~/.doom.d/org-bullets")
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+#+end_src
+
+* Fringe Mode
+#+begin_src emacs-lisp
+(setq fringe-mode '(left-only))
 #+end_src
