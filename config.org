@@ -28,35 +28,57 @@
 (load! "header.el")
 #+end_src
 * Default configuration for C & java
-** language & indentations
+** language & tabs
 #+begin_src emacs-lisp
 (set-language-environment "UTF-8")
-(setq-default tab-width 4)
-(setq-default indent-tabs-mode t)
-(setq-default c-basic-offset 4)
-(setq-default c-default-style   '(
-				  (c-mode . "linux")
-				  (java-mode . "java")))
 (setq-default tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60
 	  		    64 68 72 76 80 84 88 92 96 100 104 108 112 116 120))
-
 #+end_src
-** Java indentations settings
+** Personnal style for C & Java
 #+begin_src emacs-lisp
-(defun custom-java-mode-hook ()
-  (c-set-offset 'inline-open 0)
-  (c-set-offset 'defun-block-intro '+)
-  (c-set-offset 'substatement-open 0))
-(add-hook 'java-mode-hook 'custom-java-mode-hook)
+(defconst perso-c-java-style
+  '(
+    (c-tab-always-indent           . t)
+    (c-offsets-alist               . (
+				      (inline-open          .   0)
+				      (defun-block-intro    .   +)
+				      (substatement         .   +)
+				      (substatement-open    .   0)
+				      (func-decl-cont       .   0))
+    ))
+  )
 #+end_src
-** Column indicator
+** C defaults
 #+begin_src emacs-lisp
 (defun custom-c-mode-hook ()
+  ;; Add personnal style
+  (c-add-style "Perso" perso-c-style 'set-this-style)
+  ;; Auto-newline mode
+  (c-toggle-auto-state 1)
+  ;; Column indicator
   (setq display-fill-column-indicator-column 80)
   (setq display-fill-column-indicator-character ?\|)
-  (display-fill-column-indicator-mode 1))
+  (display-fill-column-indicator-mode 1)
+  ;; Default tabs & indentation
+  (setq-default tab-width 4)
+  (setq-default indent-tabs-mode t)
+  (setq-default c-basic-offset 4))
 (add-hook 'c-mode-hook 'custom-c-mode-hook)
 #+end_src
+** Java defaults
+#+begin_src emacs-lisp
+(defun custom-java-mode-hook ()
+  ;; Add personnal style
+  (c-add-style "Perso" perso-c-style 'set-this-style)
+  ;; Auto-newline mode
+  (c-toggle-auto-state 1)
+  ;; Default tabs & indentation
+  (setq-default tab-width 4)
+  (setq-default indent-tabs-mode t)
+  (setq-default c-basic-offset 4))
+(add-hook 'java-mode-hook 'custom-java-mode-hook)
+#+end_src
+
 * Don't show confirm message when closing emacs
 #+begin_src emacs-lisp
 (setq-default confirm-kill-emacs nil)
