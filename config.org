@@ -52,7 +52,7 @@
 #+begin_src emacs-lisp
 (defun custom-c-mode-hook ()
   ;; Add personnal style
-  (c-add-style "Perso" perso-c-style 'set-this-style)
+  (c-add-style "Perso" perso-c-java-style 'set-this-style)
   ;; Auto-newline mode
   (c-toggle-auto-state 1)
   ;; Column indicator
@@ -69,7 +69,7 @@
 #+begin_src emacs-lisp
 (defun custom-java-mode-hook ()
   ;; Add personnal style
-  (c-add-style "Perso" perso-c-style 'set-this-style)
+  (c-add-style "Perso" perso-c-java-style 'set-this-style)
   ;; Auto-newline mode
   (c-toggle-auto-state 1)
   ;; Default tabs & indentation
@@ -88,6 +88,7 @@
 ** Org directories
 #+begin_src emacs-lisp
 (setq org-directory "~/org/")
+(setq org-agenda-files '("~/org/")) ;;don't work
 #+end_src
 ** Various configurations
 #+begin_src emacs-lisp
