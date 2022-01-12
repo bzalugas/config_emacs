@@ -100,13 +100,14 @@
   (setq org-todo-keywords '(
 			    (sequence "TODO(t)" "WAIT(w)" "IN PROGRESS(i)" "|" "DONE(d)" "ABORTED(a)")
 			    (sequence "PROJ(p)" "WAIT(w)" "IN PROGRESS(i)" "|" "FINISHED(s)" "ABORTED(a)")
-			    (sequence "CODE(c)" "WAIT(w)" "IN PROGRESS(i)" "|" "CODED(d)" "ABORTED(a)")))
+			    (sequence "CODE(c)" "WAIT(w)" "CODING(i)" "|" "CODED(d)" "ABORTED(a)")))
   (setq org-todo-keyword-faces
 	'(("TODO" . (:foreground "yellow3"))
 	  ("PROJ" . (:foreground "yellow3"))
 	  ("CODE" . (:foreground "yellow3"))
 	  ("WAIT" . (:foreground "orange"))
 	  ("IN PROGRESS" . (:foreground "orange"))
+	  ("CODING" . (:foreground "orange"))
 	  ("DONE" . (:foreground "green"))
 	  ("ABORTED" . org-done)
 	  ("FINISHED" . (:foreground "green"))
