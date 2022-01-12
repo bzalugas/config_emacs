@@ -64,6 +64,7 @@
   (setq-default indent-tabs-mode t)
   (setq-default c-basic-offset 4))
 (add-hook 'c-mode-hook 'custom-c-mode-hook)
+(add-hook 'c-mode-hook #'+word-wrap-mode)
 #+end_src
 ** Java defaults
 #+begin_src emacs-lisp
@@ -77,6 +78,7 @@
   (setq-default indent-tabs-mode t)
   (setq-default c-basic-offset 4))
 (add-hook 'java-mode-hook 'custom-java-mode-hook)
+(add-hook 'java-mode-hook #'+word-wrap-mode)
 #+end_src
 
 * Don't show confirm message when closing emacs
@@ -88,13 +90,12 @@
 ** Org directories
 #+begin_src emacs-lisp
 (setq org-directory "~/org/")
-(setq org-agenda-files '("~/org/")) ;;don't work
 #+end_src
 ** Various configurations
 #+begin_src emacs-lisp
 
 (after! org
-  (setq org-agenda-files '("~/org/agenda.org"))
+  (setq org-agenda-files '("~/org/"))
   (setq org-log-done 'time)
   (setq org-todo-keywords '(
 			    (sequence "TODO(t)" "WAIT(w)" "IN PROGRESS(i)" "|" "DONE(d)" "ABORTED(a)")
