@@ -16,9 +16,21 @@
 #+begin_src emacs-lisp
 (setq doom-theme 'doom-one)
 #+end_src
-* Display relative line numbers
+* Display configuration
+** Relative line numbers
 #+begin_src emacs-lisp
 (setq display-line-numbers-type 'relative)
+#+end_src
+** Fringe Mode (git)
+#+begin_src emacs-lisp
+(setq fringe-mode '(left-only))
+#+end_src
+** Display date & time
+#+begin_src emacs-lisp
+(setq display-time-day-and-date 1)
+(setq display-time-24hr-format 1)
+(setq display-time-format "%d/%m/%Y %H:%M")
+(display-time-mode 1)
 #+end_src
 * Header 42
 #+begin_src emacs-lisp
@@ -89,29 +101,36 @@
 * Org mode
 ** Org directories
 #+begin_src emacs-lisp
-(setq org-directory "~/org/")
-#+end_src
-** Various configurations
-#+begin_src emacs-lisp
-
 (after! org
-  (setq org-agenda-files '("~/org/"))
+  (setq org-directory "~/org/")
+  (setq org-agenda-files "~/org/agendas.list") ;;If I want to choose files in this file
+;(setq org-agenda-files '("~/org/")) ;; If I want to choose files here
+)
+#+end_src
+** Todos handling
+#+begin_src emacs-lisp
+(after! org
+;  (setq org-agenda-files "~/org/agendas.list")
   (setq org-log-done 'time)
   (setq org-todo-keywords '(
 			    (sequence "TODO(t)" "WAIT(w)" "IN PROGRESS(i)" "|" "DONE(d)" "ABORTED(a)")
 			    (sequence "PROJ(p)" "WAIT(w)" "IN PROGRESS(i)" "|" "FINISHED(s)" "ABORTED(a)")
-			    (sequence "CODE(c)" "WAIT(w)" "CODING(i)" "|" "CODED(d)" "ABORTED(a)")))
+			    (sequence "CODE(c)" "WAIT(w)" "CODING(i)" "|" "CODED(d)" "ABORTED(a)")
+                (sequence "TASK(f)" "WAIT(w)" "IN PROGRESS(i)" "|" "ACCOMPLISHED(d)" "ABORTED(a)")))
   (setq org-todo-keyword-faces
 	'(("TODO" . (:foreground "yellow3"))
 	  ("PROJ" . (:foreground "yellow3"))
 	  ("CODE" . (:foreground "yellow3"))
+	  ("TASK" . (:foreground "yellow3"))
 	  ("WAIT" . (:foreground "orange"))
 	  ("IN PROGRESS" . (:foreground "orange"))
 	  ("CODING" . (:foreground "orange"))
 	  ("DONE" . (:foreground "green"))
 	  ("ABORTED" . org-done)
 	  ("FINISHED" . (:foreground "green"))
-	  ("CODED" (:foreground "green"))))
+	  ("CODED" (:foreground "green"))
+	  ("ACCOMPLISHED" . (:foreground "green"))))
+  (setq org-agenda-skip-scheduled-if-deadline-is-shown 'repeated-after-deadline)
 )
 #+end_src
 
@@ -120,9 +139,4 @@
 (add-load-path! "~/.doom.d/org-bullets")
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-#+end_src
-
-* Fringe Mode
-#+begin_src emacs-lisp
-(setq fringe-mode '(left-only))
 #+end_src
