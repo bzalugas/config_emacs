@@ -1,2 +1,0 @@
-cp all files in DOOMDIR (~/.doom.d by default).
-for init.el, better modify the file alrdeady in DOOMDIR.
