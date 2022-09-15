@@ -1,0 +1,6 @@
+# -*- mode: org; -*-
+
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="theme/personal/personalStyle.css"/>
+#+HTML_HEAD: <script type="text/javascript" src="theme/personal/tabScript.js"></script>
+#+HTML_HEAD: <link rel="stylesheet" href="theme/personal/highlight/styles/monokai-sublime.min.css"/>
+#+HTML_HEAD: <script src="theme/personal/highlight/highlight.min.js"></script>
