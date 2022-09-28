@@ -9,7 +9,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
         setVisible(hash);
         setActive(hash);
     }
-    document.querySelectorAll(".src-python").forEach(el => {
+    document.querySelectorAll(".src").forEach(el => {
+        // if (el.classList.contains("src-python"))
+        //     el.classList.add("language-python");
+        // else if (el.classList.contains("src-bash"))
+        //     el.classList.add("language-bash");
+        hljs.highlightElement(el);
+    })
+    document.querySelectorAll("code").forEach(el => {
         hljs.highlightElement(el);
     })
 })
@@ -99,7 +106,7 @@ function init()
      */
     const title = document.querySelector("#table-of-contents h2");
     title.insertAdjacentHTML('beforeend',
-        '<a href="#" class="verticalNav__close"><img src="theme/personal/cross.svg" alt="Close"></a>');
+        '<a href="#" class="verticalNav__close"><img src="theme/personal/src/cross.svg" alt="Close"></a>');
 
     /*
     Initialize the nav
@@ -111,7 +118,7 @@ function init()
     navChapters.forEach((chapter) => {
         chapter.classList.add("verticalNav__chapter");
     });
-    const listLevel2 = document.querySelectorAll("li > ul");
+    const listLevel2 = document.querySelectorAll(".verticalNav li > ul");
     listLevel2.forEach((el) => {
        el.classList.add("verticalNav__list__level2");
     });

@@ -43,6 +43,17 @@ pre {
   white-space: pre-wrap;
 }
 
+code {
+  font-size: 0.75rem;
+  padding: 0 10px;
+  border: 1px solid rgb(52, 49, 49);
+  margin: 5px;
+}
+
+figure img {
+  max-width: 100%;
+}
+
 header {
   max-width: 800px;
   margin: 2rem auto auto 300px;
@@ -144,6 +155,19 @@ header h1 {
   display: none;
   text-align: justify;
   font-size: 1rem;
+}
+.chapter ul {
+  margin: 0.3rem auto;
+  padding-left: 1rem;
+}
+.chapter ul li {
+  margin: 0.5rem auto;
+}
+.chapter ol {
+  margin: 0.3rem auto;
+}
+.chapter ol li {
+  margin: 0.5rem auto;
 }
 .chapter--visible {
   display: block;

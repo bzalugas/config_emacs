@@ -71,10 +71,21 @@ pre {
   white-space: pre-wrap;
 }
 
-div#content {
-  //width: 100vw;
-  //height: 100vh;
+code {
+  font-size: 0.75rem;
+  padding: 0 10px;
+  border: 1px solid $defaultTextColor;
+  margin: 5px;
 }
+
+figure img {
+	max-width: 100%;
+}
+
+// div#content {
+//   //width: 100vw;
+//   //height: 100vh;
+// }
 
 header {
   max-width: $chapterMaxWidth;
@@ -197,6 +208,21 @@ header {
     text-align: justify;
     font-size: 1rem;
   //}
+
+  ul {
+    margin: 0.3rem auto;
+    padding-left: 1rem;
+    li {
+      margin: 0.5rem auto;
+    }
+  }
+
+  ol {
+    margin: 0.3rem auto;
+    li {
+      margin: 0.5rem auto;
+    }
+  }
 
   &--visible {
     display: block;
