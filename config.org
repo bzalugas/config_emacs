@@ -58,6 +58,8 @@
 				      (substatement-open    .   0)
 				      (func-decl-cont       .   0))
     ))
+  (use-package git-gutter
+    :hook (prog-mode . git-gutter-mode))
   )
 #+end_src
 ** C defaults
