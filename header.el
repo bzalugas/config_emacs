@@ -22,7 +22,7 @@
 ;    By: login____ <mail_______@student.42.fr>      +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: yyyy/mm/dd 15:27:11 by login____         #+#    #+#              ;
-;    Updated: 2020/11/23 01:05:46 by suvitiel         ###   ########.fr        ;
+;    Updated: 2023/08/11 18:08:20 by bzalugas         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
@@ -32,14 +32,14 @@
 (setq write-file-hooks (cons 'header-update write-file-hooks))
 
 
-(set 'user-login "bzalugas")
+(set 'user-login "bazaluga")
 
 
 
 
 (set 'user-mail (let ((mail (getenv "MAIL")))
 				   (if (string= mail nil)
-					   "bzalugas@student.42.fr"
+					   "bazaluga@student.42.fr"
 					 mail)
 				   )
 	 )
