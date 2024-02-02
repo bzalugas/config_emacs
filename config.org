@@ -5,12 +5,12 @@
 ;;Take all the screen
 ;;(add-to-list 'initial-frame-alist '(fullscreen . fullboth))
 ;;Take all the screen but with dock & title bar
-(add-to-list 'initial-frame-alist '(fullscreen . maximized))
+;; (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 #+end_src
 * Name & mail
 #+begin_src emacs-lisp
-(setq user-full-name "bzalugas"
-      user-mail-address "bastien.zalugas@hotmail.fr")
+(setq user-full-name "bazaluga"
+      user-mail-address "bazaluga@student.42.fr")
 #+end_src
 * Main theme for doom emacs
 #+begin_src emacs-lisp
@@ -104,8 +104,8 @@
 ** Org directories
 #+begin_src emacs-lisp
 (after! org
-  (setq org-directory "~/org/")
-  (setq org-agenda-files "~/org/agendas.list") ;;If I want to choose files in this file
+  (setq org-directory "~/.doom.d/org/")
+  (setq org-agenda-files "~/.doom.d/org/agendas.list") ;;If I want to choose files in this file
 ;(setq org-agenda-files '("~/org/")) ;; If I want to choose files here
 )
 #+end_src
