@@ -106,3 +106,5 @@
 (add-load-path! "~/.doom.d/org-bullets")
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+(global-set-key (kbd "C-x C-a") #'treemacs-select-window)

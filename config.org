@@ -145,3 +145,8 @@
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 #+end_src
+
+* Treemacs config
+#+begin_src emacs-lisp
+(global-set-key (kbd "C-x C-a") #'treemacs-select-window)
+#+end_src
