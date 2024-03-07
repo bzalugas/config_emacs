@@ -32,6 +32,10 @@
 (setq display-time-format "%d/%m/%Y %H:%M")
 (display-time-mode 1)
 #+end_src
+** Locale for dates
+#+begin_src emacs-lisp
+(setq system-time-locale "C")
+#+end_src
 * Header 42
 #+begin_src emacs-lisp
 (load! "list.el")
