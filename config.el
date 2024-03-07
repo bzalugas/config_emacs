@@ -17,6 +17,8 @@
 (setq display-time-format "%d/%m/%Y %H:%M")
 (display-time-mode 1)
 
+(setq system-time-locale "C")
+
 (load! "list.el")
 (load! "string.el")
 (load! "comments.el")
