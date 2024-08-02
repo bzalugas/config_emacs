@@ -150,3 +150,22 @@
 #+begin_src emacs-lisp
 (global-set-key (kbd "C-x C-a") #'treemacs-select-window)
 #+end_src
+
+* Multiple-cursors config
+#+begin_src emacs-lisp
+(global-set-key (kbd "M-n") #'mc/skip-to-next-like-this)
+(global-set-key (kbd "M-p") #'mc/skip-to-previous-like-this)
+(defun mc/toggle-cursor-at-point ()
+  "Add or remove a cursor at point."
+  (interactive)
+  (if multiple-cursors-mode
+      (message "Cannot toggle cursor at point while `multiple-cursors-mode' is active.")
+    (let ((existing (mc/fake-cursor-at-point)))
+      (if existing
+          (mc/remove-fake-cursor existing)
+        (mc/create-fake-cursor-at-point)))))
+(add-to-list 'mc/cmds-to-run-once 'mc/toggle-cursor-at-point)
+(add-to-list 'mc/cmds-to-run-once 'multiple-cursors-mode)
+(global-set-key (kbd "C-c SPC") #'mc/toggle-cursor-at-point)
+(global-set-key (kbd "C-c m RET") #'multiple-cursors-mode)
+#+end_src
