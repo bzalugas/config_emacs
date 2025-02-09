@@ -124,3 +124,5 @@
 ;; (add-to-list 'mc/cmds-to-run-once 'multiple-cursors-mode)
 (global-set-key (kbd "C-c SPC") #'mc/toggle-cursor-at-point)
 (global-set-key (kbd "C-c m RET") #'multiple-cursors-mode)
+
+(add-hook 'doom-after-init-hook (lambda () (tool-bar-mode 1) (tool-bar-mode 0)))

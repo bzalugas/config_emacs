@@ -169,3 +169,8 @@
 (global-set-key (kbd "C-c SPC") #'mc/toggle-cursor-at-point)
 (global-set-key (kbd "C-c m RET") #'multiple-cursors-mode)
 #+end_src
+
+* Reduce title bar
+#+begin_src emacs-lisp
+(add-hook 'doom-after-init-hook (lambda () (tool-bar-mode 1) (tool-bar-mode 0)))
+#+end_src
