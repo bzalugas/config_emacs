@@ -164,8 +164,8 @@
       (if existing
           (mc/remove-fake-cursor existing)
         (mc/create-fake-cursor-at-point)))))
-(add-to-list 'mc/cmds-to-run-once 'mc/toggle-cursor-at-point)
-(add-to-list 'mc/cmds-to-run-once 'multiple-cursors-mode)
+;; (add-to-list 'mc/cmds-to-run-once 'mc/toggle-cursor-at-point)
+;; (add-to-list 'mc/cmds-to-run-once 'multiple-cursors-mode)
 (global-set-key (kbd "C-c SPC") #'mc/toggle-cursor-at-point)
 (global-set-key (kbd "C-c m RET") #'multiple-cursors-mode)
 #+end_src
