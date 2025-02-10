@@ -34,7 +34,9 @@
 				      (defun-block-intro    .   +)
 				      (substatement         .   +)
 				      (substatement-open    .   0)
-				      (func-decl-cont       .   0))
+				      (func-decl-cont       .   0)
+				      (brace-list-intro     .   +)
+				      (access-label         .   -))
     ))
   (use-package git-gutter
     :hook (prog-mode . git-gutter-mode))
@@ -44,7 +46,7 @@
   ;; Add personnal style
   (c-add-style "Perso" perso-c-java-style 'set-this-style)
   ;; Auto-newline mode
-  (c-toggle-auto-state 1)
+  ;; (c-toggle-auto-state 1)
   ;; Column indicator
   (setq display-fill-column-indicator-column 80)
   (setq display-fill-column-indicator-character ?\|)
@@ -55,6 +57,25 @@
   (setq-default c-basic-offset 4))
 (add-hook 'c-mode-hook 'custom-c-mode-hook)
 (add-hook 'c-mode-hook #'+word-wrap-mode)
+
+(defun custom-c++-mode-hook ()
+  ;; Add personnal style
+  (c-add-style "Perso" perso-c-java-style 'set-this-style)
+  ;; ;; Auto-newline mode
+  ;; (c-toggle-auto-state 1)
+  ;; Column indicator
+  (setq display-fill-column-indicator-column 80)
+  (setq display-fill-column-indicator-character ?\|)
+  (display-fill-column-indicator-mode 1)
+  ;; Default tabs & indentation
+  (setq-default tab-width 4)
+  (setq-default indent-tabs-mode t)
+  (setq-default c-basic-offset 4)
+  ;; (c-set-offset 'brace-list-intro '+)
+  ;; (c-set-offset 'access-label '-)
+  )
+(add-hook 'c++-mode-hook 'custom-c++-mode-hook)
+(add-hook 'c++-mode-hook #'+word-wrap-mode)
 
 (defun custom-java-mode-hook ()
   ;; Add personnal style
