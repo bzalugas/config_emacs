@@ -36,7 +36,9 @@
 				      (defun-block-intro    .   +)
 				      (substatement         .   +)
 				      (substatement-open    .   0)
-				      (func-decl-cont       .   0))
+				      (func-decl-cont       .   0)
+				      (brace-list-intro     .   +)
+				      (access-label         .   -))
     ))
   (use-package git-gutter
     :hook (prog-mode . git-gutter-mode))
@@ -46,7 +48,7 @@
   ;; Add personnal style
   (c-add-style "Perso" perso-c-java-style 'set-this-style)
   ;; Auto-newline mode
-  (c-toggle-auto-state 1)
+  ;; (c-toggle-auto-state 1)
   ;; Column indicator
   (setq display-fill-column-indicator-column 80)
   (setq display-fill-column-indicator-character ?\|)
@@ -57,6 +59,25 @@
   (setq-default c-basic-offset 4))
 (add-hook 'c-mode-hook 'custom-c-mode-hook)
 (add-hook 'c-mode-hook #'+word-wrap-mode)
+
+(defun custom-c++-mode-hook ()
+  ;; Add personnal style
+  (c-add-style "Perso" perso-c-java-style 'set-this-style)
+  ;; ;; Auto-newline mode
+  ;; (c-toggle-auto-state 1)
+  ;; Column indicator
+  (setq display-fill-column-indicator-column 80)
+  (setq display-fill-column-indicator-character ?\|)
+  (display-fill-column-indicator-mode 1)
+  ;; Default tabs & indentation
+  (setq-default tab-width 4)
+  (setq-default indent-tabs-mode t)
+  (setq-default c-basic-offset 4)
+  ;; (c-set-offset 'brace-list-intro '+)
+  ;; (c-set-offset 'access-label '-)
+  )
+(add-hook 'c++-mode-hook 'custom-c++-mode-hook)
+(add-hook 'c++-mode-hook #'+word-wrap-mode)
 
 (defun custom-java-mode-hook ()
   ;; Add personnal style
@@ -110,3 +131,19 @@
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 (global-set-key (kbd "C-x C-a") #'treemacs-select-window)
+
+(global-set-key (kbd "M-n") #'mc/skip-to-next-like-this)
+(global-set-key (kbd "M-p") #'mc/skip-to-previous-like-this)
+(defun mc/toggle-cursor-at-point ()
+  "Add or remove a cursor at point."
+  (interactive)
+  (if multiple-cursors-mode
+      (message "Cannot toggle cursor at point while `multiple-cursors-mode' is active.")
+    (let ((existing (mc/fake-cursor-at-point)))
+      (if existing
+          (mc/remove-fake-cursor existing)
+        (mc/create-fake-cursor-at-point)))))
+;; (add-to-list 'mc/cmds-to-run-once 'mc/toggle-cursor-at-point)
+;; (add-to-list 'mc/cmds-to-run-once 'multiple-cursors-mode)
+(global-set-key (kbd "C-c SPC") #'mc/toggle-cursor-at-point)
+(global-set-key (kbd "C-c m RET") #'multiple-cursors-mode)
