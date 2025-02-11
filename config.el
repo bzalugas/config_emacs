@@ -36,7 +36,8 @@
 				      (substatement-open    .   0)
 				      (func-decl-cont       .   0)
 				      (brace-list-intro     .   +)
-				      (access-label         .   -))
+				      (access-label         .   -)
+				      (case-label           .   +))
     ))
   (use-package git-gutter
     :hook (prog-mode . git-gutter-mode))
