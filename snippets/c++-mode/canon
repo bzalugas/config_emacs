@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: orthodox canonical form implementation
+# uuid:
+# key: canon
+# condition: t
+# --
+
+${1:ClassName}::$1(void) $2 {$3}
+
+$1::$1($1 &copy) $4 {$5}
+
+$1::~$1(void) {}
+
+$1	&$1::operator=($1 const &right) {$6}

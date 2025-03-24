@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: orthodox canonical class
+# uuid:
+# key: class
+# condition: t
+# --
+
+class	${1:Name} $2{
+public:
+	$1(void);
+	$1($1 const &copy);
+	~$1(void);
+
+	$1	&operator=($1 const &right);
+};
