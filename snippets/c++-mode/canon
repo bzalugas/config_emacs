@@ -11,4 +11,4 @@ $1::$1($1 &copy) $4 {$5}
 
 $1::~$1(void) {}
 
-$1	&$1::operator=($1 const &right) {$6}
+$1 &$1::operator=($1 const &right) {$6}
