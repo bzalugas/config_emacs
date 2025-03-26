@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: orthodox canonical class
+# uuid: 2323
+# key: clscanon
+# condition: t
+# --
+
+class	${1:Name} $2{
+public:
+	$1(void);
+	$1($1 const &copy);
+	~$1(void);
+
+	$1	&operator=($1 const &right);
+	$0
+};
