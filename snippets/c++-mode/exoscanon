@@ -1,0 +1,26 @@
+# -*- mode: snippet -*-
+# name: Canonical form for 42 exos
+# uuid: 2325
+# key: exoscanon
+# condition: t
+# --
+
+#include <iostream>
+
+${1:ClassName}::$1(void) $2
+{
+	std::cout << "${1} default constructor called." << std::endl;
+}
+
+$1::$1($1 const &copy) $3
+{
+	std::cout << "${1} copy constructor called." << std::endl;
+}
+
+$1::~$1(void)
+{
+	std::cout << "${1} destructor called." << std::endl;
+}
+
+$1	&$1::operator=($1 const &right) {$6}
+$0
