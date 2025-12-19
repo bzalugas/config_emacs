@@ -79,6 +79,10 @@
 (add-hook 'c++-mode-hook 'custom-c++-mode-hook)
 (add-hook 'c++-mode-hook #'+word-wrap-mode)
 
+;; Ensure .tpp files are opened in c++ mode (not C mode)
+(require 'cc-mode)
+(add-to-list 'auto-mode-alist '("\\.tpp\\'" . c++-mode))
+
 (defun custom-java-mode-hook ()
   ;; Add personnal style
   (c-add-style "Perso" perso-c-java-style 'set-this-style)

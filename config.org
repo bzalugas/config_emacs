@@ -106,6 +106,10 @@
   )
 (add-hook 'c++-mode-hook 'custom-c++-mode-hook)
 (add-hook 'c++-mode-hook #'+word-wrap-mode)
+
+;; Ensure .tpp files are opened in c++ mode (not C mode)
+(require 'cc-mode)
+(add-to-list 'auto-mode-alist '("\\.tpp\\'" . c++-mode))
 #+end_src
 ** Java defaults
 #+begin_src emacs-lisp
