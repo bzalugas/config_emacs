@@ -7,12 +7,14 @@
 
 ${1:ClassName}::$1(void) {}
 
-$1::$1($1 const &copy) {}
+$1::$1(const $1& copy) {}
 
 $1::~$1(void) {}
 
-$1	&$1::operator=($1 const &right)
+$1	&$1::operator=(const $1& right)
 {
+	if (this == &right)
+	   return (*this);
 	return (*this);
 }
 $0
